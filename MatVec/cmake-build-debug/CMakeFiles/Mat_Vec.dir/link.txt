@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++17 -Wall -fsanitize=address --coverage -g   CMakeFiles/Mat_Vec.dir/main.cpp.o CMakeFiles/Mat_Vec.dir/Matrix.cpp.o CMakeFiles/Mat_Vec.dir/Vector.cpp.o  -o Mat_Vec 
