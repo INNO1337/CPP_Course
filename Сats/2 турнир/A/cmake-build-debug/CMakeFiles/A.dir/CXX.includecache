@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/A/fixed_allocator.h
+stack
+-
+iostream
+-
+
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/A/main.cpp
+iostream
+-
+vector
+-
+fixed_allocator.h
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/A/fixed_allocator.h
+

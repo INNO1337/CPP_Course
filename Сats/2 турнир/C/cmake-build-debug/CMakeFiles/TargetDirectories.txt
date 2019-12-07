@@ -1,0 +1,3 @@
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/C/cmake-build-debug/CMakeFiles/C.dir
+/home/inno/Рабочий стол/CPP Tasks/Сats/2 турнир/C/cmake-build-debug/CMakeFiles/edit_cache.dir

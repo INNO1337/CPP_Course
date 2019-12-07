@@ -19,18 +19,25 @@ namespace fefu
         using const_reference = typename std::add_lvalue_reference<const T>::type;
         using value_type = T;
 
-        allocator() noexcept;
+        allocator() noexcept = default;
 
-        allocator(const allocator&) noexcept;
+        allocator(const allocator&) noexcept = default;
 
         template <class U>
-        allocator(const allocator<U>&) noexcept;
+        allocator(const allocator<U>&) noexcept {
+
+        };
 
         ~allocator();
 
-        pointer allocate(size_type);
+        pointer allocate(size_type) {
+            pointer ptr = ::operator new (size * sizeof(T));
+            return ptr;
+        };
 
-        void deallocate(pointer p, size_type n) noexcept;
+        void deallocate(pointer p, size_type n) noexcept {
+            ::operator delete (p, n);
+        };
     };
 
     template<typename ValueType>
@@ -42,16 +49,30 @@ namespace fefu
         using reference = ValueType&;
         using pointer = ValueType*;
 
-        hash_map_iterator() noexcept;
-        hash_map_iterator(const hash_map_iterator& other) noexcept;
+        hash_map_iterator() noexcept = default;
+        hash_map_iterator(const hash_map_iterator& other) noexcept : p(other.p) { };
 
-        reference operator*() const;
-        pointer operator->() const;
+        reference operator*() const {
+            return *p;
+        };
+        pointer operator->() const {
+            return p;
+        };
 
         // prefix ++
-        hash_map_iterator& operator++();
+        hash_map_iterator& operator++() {
+            p++;
+            while (*p != state_data::ACTIVE) {
+                p++;
+            }
+            return *this;
+        };
         // postfix ++
-        hash_map_iterator operator++(int);
+        hash_map_iterator operator++(int) {
+            hash_map_iterator it(*this);
+            p++;
+            return it;
+        };
 
         friend bool operator==(const hash_map_iterator<ValueType>&, const hash_map_iterator<ValueType>&);
         friend bool operator!=(const hash_map_iterator<ValueType>&, const hash_map_iterator<ValueType>&);
